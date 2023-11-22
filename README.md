@@ -2,8 +2,6 @@
 
 To perform statistical analyses using Machine Learning in R on the sample attached dataset. 
 
-**Objectives**
-
 **Understanding the Business Context**
 
 Market Sizing and Scenario Analysis: Determine the potential market size for deposits and create scenarios based on different market conditions or customer segments.
@@ -64,19 +62,35 @@ Prepare a report or presentation to communicate your findings and recommendation
 The dataset from the UCI Machine Learning Repository on Bank Marketing contains the following columns:
 
 Age: Age of the client.
+
 Job: Type of job (e.g., management, technician, entrepreneur).
+
 Marital: Marital status (e.g., married, single).
+
 Education: Level of education (e.g., tertiary, secondary).
+
 Default: Indicates if the client has credit in default (yes/no).
+
 Balance: Average yearly balance, in euros.
+
 Housing: Indicates if the client has a housing loan (yes/no).
+
 Loan: Indicates if the client has a personal loan (yes/no).
+
 Contact: Type of communication used (e.g., unknown, cellular).
+
 Day: Last contact day of the month.
+
 Month: Last contact month of the year.
+
 Duration: Last contact duration, in seconds.
+
 Campaign: Number of contacts performed during this campaign and for this client.
+
 Pdays: Number of days that passed by after the client was last contacted from a previous campaign (-1 means client was not previously contacted).
+
 Previous: Number of contacts performed before this campaign and for this client.
+
 Poutcome: Outcome of the previous marketing campaign (e.g., unknown, success).
+
 Y: Indicates if the client has subscribed a term deposit (yes/no).
