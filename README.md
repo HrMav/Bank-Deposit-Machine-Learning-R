@@ -2,7 +2,7 @@
 
 To perform statistical analyses using Machine Learning in R on the sample attached dataset. 
 
-## Objectives**
+**Objectives**
 
 **Understanding the Business Context**
 
