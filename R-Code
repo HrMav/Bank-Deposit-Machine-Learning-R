@@ -1,0 +1,57 @@
+bank_data = read_delim("bank-full.csv", delim =";")
+str(bank_data)
+summary(bank_data)
+head(bank_data)
+
+# Encoding categorical variables
+bank_data$job <- as.numeric(factor(bank_data$job))
+bank_data$marital <- as.numeric(factor(bank_data$marital))
+bank_data$education <- as.numeric(factor(bank_data$education))
+bank_data$default <- ifelse(bank_data$default == "yes", 1, 0)
+bank_data$housing <- ifelse(bank_data$housing == "yes", 1, 0)
+bank_data$loan <- ifelse(bank_data$loan == "yes", 1, 0)
+bank_data$contact <- as.numeric(factor(bank_data$contact))
+bank_data$month <- as.numeric(factor(bank_data$month))
+bank_data$poutcome <- as.numeric(factor(bank_data$poutcome))
+bank_data$y <- ifelse(bank_data$y == "yes", 1, 0)
+
+# Calculate correlation matrix
+cor_matrix <- cor(bank_data, use = "complete.obs")
+
+# Visualize the correlation matrix
+corrplot(cor_matrix, method = "color")
+
+# Function to calculate WoE and IV for a given variable
+calculate_woe_iv <- function(data, variable, target) {
+  # Group by the variable and calculate counts for Good and Bad
+  grouped <- data %>%
+    group_by(!!sym(variable)) %>%
+    summarise(Count = n(),
+              Bad = sum(!!sym(target) == 1),  # Subscribing to a term deposit
+              Good = sum(!!sym(target) == 0)) %>%  # Not subscribing
+    mutate(Distr_Good = Good / sum(Good),
+           Distr_Bad = Bad / sum(Bad)) %>%
+    mutate(WoE = ifelse(Distr_Good == 0 | Distr_Bad == 0, 0, log(Distr_Good / Distr_Bad))) %>%
+    mutate(IV = (Distr_Good - Distr_Bad) * WoE) %>%
+    ungroup()
+  
+  # Calculate total IV for the variable
+  total_iv <- sum(grouped$IV)
+  
+  return(list(WoE = grouped, IV = total_iv))
+}
+
+# Initialize an empty list to store results
+iv_results <- list()
+
+# Loop through each variable, except the target variable
+for(variable in names(bank_data)) {
+  if(variable != "y") { # Replace "y" with your target variable name if different
+    # Calculate WoE and IV for each variable
+    result <- calculate_woe_iv(bank_data, variable, "y")
+    iv_results[[variable]] <- result$IV
+  }
+}
+
+# View the IV for all variables
+print(iv_results)
