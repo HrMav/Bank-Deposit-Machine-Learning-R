@@ -1,3 +1,23 @@
+## Key Observations from Correlation Matrix Heatmap
+
+The heatmap provides a visual representation of the correlation between different variables in the bank dataset. Below are the most significant observations:
+
+- **Positive Correlations**:
+  - `duration` shows a substantial positive correlation with the outcome variable `y`, indicating that longer last contact durations are strongly associated with a higher likelihood of a term deposit subscription.
+  - `pdays` and `previous` exhibit a strong negative correlation with `campaign`, suggesting that a higher number of contacts in the current campaign is related to fewer contacts and a longer time since the last campaign.
+
+- **Moderate Correlations**:
+  - `housing` and `loan` display a moderate positive correlation, implying that clients with housing loans may also be more likely to have personal loans.
+  - The `month` of contact shows a moderate positive correlation with `day`, which could indicate seasonal or monthly patterns in the contact strategy.
+
+- **Negative Correlations**:
+  - `pdays` (days since the last contact from a previous campaign) and `poutcome` (outcome of the previous marketing campaign) are negatively correlated with the outcome `y`, suggesting certain outcomes or longer periods since the last contact may decrease the likelihood of a term deposit subscription.
+
+These insights are critical for understanding client behavior and can guide data-driven decision-making in campaign strategies.
+
+![CorrMatrix](https://github.com/HrMav/Bank-Deposit-Machine-Learning-R/assets/132946730/0c5b7ef9-bca8-4049-b044-9260e61a8f51)
+
+
 ## Information Value Analysis Summary
 
 ### Highly Predictive Variables:
