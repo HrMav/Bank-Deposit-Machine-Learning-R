@@ -19,7 +19,9 @@ bank_data$y <- ifelse(bank_data$y == "yes", 1, 0)
 cor_matrix <- cor(bank_data, use = "complete.obs")
 
 # Visualize the correlation matrix
-corrplot(cor_matrix, method = "color")
+# Visualize the correlation matrix
+corrplot(cor_matrix, add = TRUE, type = 'lower', method = 'square', order = 'AOE',
+         diag = FALSE, tl.pos = 'n', cl.pos = 'n')
 
 # Function to calculate WoE and IV for a given variable
 calculate_woe_iv <- function(data, variable, target) {
