@@ -59,6 +59,8 @@ Interpret the results in the context of your business objectives.
 
 Prepare a report or presentation to communicate your findings and recommendations to stakeholders.
 
+**About the Dataset**
+
 The dataset from the UCI Machine Learning Repository on Bank Marketing contains the following columns:
 
 Age: Age of the client.
