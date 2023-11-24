@@ -23,7 +23,7 @@ Long-Term Recommendations for Business Growth: Based on the analysis, make strat
 Highlighting Risks and Opportunities: Identify potential risks and opportunities from the data and suggest action plans.
 
 
-To perform statistical analyses in R that align with your objectives, you would typically follow these steps:
+**To perform statistical analyses in R that align with objectives:**
 
 Understanding the Business Context
 Market Sizing and Scenario Analysis: Determine the potential market size for deposits and create scenarios based on different market conditions or customer segments.
