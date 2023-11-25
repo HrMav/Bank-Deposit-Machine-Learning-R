@@ -57,3 +57,28 @@ for(variable in names(bank_data)) {
 
 # View the IV for all variables
 print(iv_results)
+
+# Assume 'duration', 'balance', 'pdays', 'previous', 'poutcome' were selected based on IV and WoE
+# Scale the variables
+selected_vars <- bank_data[, c('duration', 'balance', 'pdays', 'previous', 'poutcome')]
+scaled_vars <- scale(selected_vars)
+
+# Determine the optimal number of clusters
+wss <- sapply(1:10, function(k){sum(kmeans(scaled_vars, centers = k, nstart = 20)$withinss)})
+elbow_plot <- ggplot(mapping = aes(x = 1:10, y = wss)) + geom_line() + scale_x_continuous(breaks = 1:10)
+print(elbow_plot)
+
+# Assume the optimal number of clusters is determined to be 3
+set.seed(123)  # Set seed for reproducibility
+kmeans_result <- kmeans(scaled_vars, centers = 3, nstart = 25)
+
+# Attach cluster assignment back to the original data
+bank_data$cluster <- kmeans_result$cluster
+
+# Analyze the clusters
+# This could involve summarizing the variables within each cluster or visualizing them
+cluster_summary <- bank_data %>%
+  group_by(cluster) %>%
+  summarise_all(mean)
+
+print(cluster_summary)
