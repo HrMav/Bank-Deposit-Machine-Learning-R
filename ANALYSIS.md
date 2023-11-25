@@ -47,3 +47,61 @@ These insights are critical for understanding client behavior and can guide data
 - Demographic factors like **age**, **job**, and **education**, while somewhat informative, are less impactful compared to contact-related variables.
 - Variables like **default** have minimal influence and might not be useful in predictive modeling for this specific outcome.
 
+## Cluster Analysis Results Interpretation
+
+The cluster analysis of the bank dataset has revealed three distinct segments of clients based on various attributes:
+
+### Cluster 1 Characteristics
+- **Average Age**: 40.9 years old.
+- **Job**: Diverse occupations with an average encoded value of 5.35.
+- **Marital Status**: Majority in a similar marital status (encoded value: 2.16).
+- **Education Level**: Average level of education (encoded value: 2.21).
+- **Credit Default**: Very few clients with credit in default.
+- **Average Balance**: €1049.
+- **Housing Loan**: Approximately 53.6% have housing loans.
+- **Personal Loan**: A smaller segment with personal loans.
+- **Contact**: Primarily through one contact method (encoded value: 1.76).
+- **Contact Day**: Most contacts around the 16th of the month.
+- **Contact Month**: A mix throughout the year (encoded value: 6.46).
+- **Duration**: Average last contact duration of 183 seconds.
+- **Campaign Contacts**: Around 3 contacts per campaign.
+- **Previous Campaign Contacts**: Very few previous contacts.
+- **Outcome of Previous Campaign**: Generally unknown (encoded value: 3.98).
+- **Term Deposit Subscription**: Low subscription rate (5.62%).
+
+### Cluster 2 Characteristics
+- **Average Age**: Similar to Cluster 1, around 40.8 years old.
+- **Job**: Similar job distribution to Cluster 1.
+- **Marital and Education**: Comparable marital status and education level to Cluster 1.
+- **Credit Default**: Even fewer defaults than Cluster 1.
+- **Average Balance**: Higher at €1479.
+- **Housing and Personal Loans**: More clients with housing loans and slightly fewer with personal loans than Cluster 1.
+- **Contact Method**: Slightly more varied than Cluster 1.
+- **Contact Day and Month**: Similar pattern as Cluster 1 for contact days and months.
+- **Duration**: Longer last contact duration averaging 243 seconds.
+- **Campaign Contacts**: Fewer than Cluster 1.
+- **Previous Campaign Contacts**: Significantly higher, indicating more follow-up was done with these clients.
+- **Outcome of Previous Campaign**: Better outcomes (encoded value: 1.47).
+- **Term Deposit Subscription**: Higher subscription rate (19.7%).
+
+### Cluster 3 Characteristics
+- **Average Age**: Slightly older than the first two clusters at 41.3 years.
+- **Job and Education**: Job types and education levels are in line with the other two clusters.
+- **Credit Default**: Low occurrence of defaults, slightly above Cluster 1.
+- **Average Balance**: Significantly higher at €3279, indicating a wealthier segment.
+- **Housing and Personal Loans**: Similar to Cluster 1 in terms of loans.
+- **Contact Method**: Less variety in contact method compared to the other clusters.
+- **Contact Day and Month**: Consistent with the other clusters.
+- **Duration**: The longest average duration of 782 seconds.
+- **Campaign Contacts**: Similar to Cluster 1.
+- **Previous Campaign Contacts**: Lowest previous campaign contacts amongst the clusters.
+- **Outcome of Previous Campaign**: Mostly unknown, akin to Cluster 1 (encoded value: 3.92).
+- **Term Deposit Subscription**: Highest subscription rate (40.1%).
+
+### Inferences
+- **Cluster 2** represents a middle ground between the other two clusters, with slightly wealthier clients and a moderate subscription rate.
+- **Cluster 3** clients, with the highest average balance and longest call duration, are the most likely to subscribe to term deposits, indicating the potential value in targeting similar profiles.
+- **Cluster 1** has the lowest subscription rate, suggesting these clients may need a different approach or offer to be converted.
+
+These clusters can provide actionable insights for targeted marketing campaigns, with tailored strategies for each segment to improve term deposit subscription rates.
+
