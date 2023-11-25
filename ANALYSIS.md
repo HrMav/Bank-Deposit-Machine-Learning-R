@@ -105,3 +105,32 @@ The cluster analysis of the bank dataset has revealed three distinct segments of
 
 These clusters can provide actionable insights for targeted marketing campaigns, with tailored strategies for each segment to improve term deposit subscription rates.
 
+## Linear Regression Model Inferences
+
+The linear regression analysis was performed to understand the impact of various factors on the likelihood of customers subscribing to a term deposit. The results are as follows:
+
+### Residuals
+- The residuals range from -2.65896 to 1.01963, with the median closer to zero. This indicates that while there are outliers, the model's predictions are generally close to the actual values for many observations.
+
+### Coefficients
+- **Duration**: The coefficient for `duration` is highly significant (p < 2e-16) with an estimate of 0.126655. This implies that longer calls are strongly associated with a higher probability of subscribing to a term deposit.
+- **Pdays**: The number of days that passed by after the client was last contacted from a previous campaign (`pdays`) has a positive and significant effect (p < 2e-16) with an estimate of 0.038506. This suggests that clients contacted more recently are more likely to subscribe.
+- **Previous**: The number of contacts performed before this campaign (`previous`) also shows a positive effect with a significant t-value (p < 2e-16), suggesting that repeated contact is beneficial.
+- **Poutcome**: The outcome of the previous marketing campaign (`poutcome`) is significant (p = 1.36e-09) with an estimate of 0.016858, indicating its positive influence on the current campaign's outcome.
+
+### Model Fit
+- The model has a Multiple R-squared of 0.1698, indicating that approximately 17% of the variability in the subscription outcome is explained by the model.
+- The Adjusted R-squared is very close to the Multiple R-squared, which shows the model is not penalized significantly for any unnecessary complexity.
+- The F-statistic is significant (p < 2.2e-16), demonstrating that the model is a good fit for the data compared to a model with no predictors.
+
+### Marketing Campaign Recommendations
+Based on the model's findings, the following strategies are suggested for the marketing campaign:
+
+- **Focus on Call Quality**: Given the strong influence of `duration`, efforts should be made to ensure that calls are engaging and informative to keep potential clients on the line longer.
+- **Timely Follow-ups**: The significance of `pdays` suggests that prompt follow-ups after initial contact may increase the chances of subscription.
+- **Leverage Previous Contacts**: The positive coefficient for `previous` indicates that repeated engagement with potential clients can be fruitful.
+- **Analyze Past Successes**: Understanding what worked in past campaigns (`poutcome`) can help replicate success in future efforts.
+
+By leveraging these insights, the bank can optimize its marketing strategies to enhance the effectiveness of its campaigns in promoting term deposit subscriptions.
+
+
