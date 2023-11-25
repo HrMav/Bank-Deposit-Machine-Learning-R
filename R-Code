@@ -82,3 +82,24 @@ cluster_summary <- bank_data %>%
   summarise_all(mean)
 
 print(cluster_summary)
+
+# Encode categorical variables numerically
+# (assuming 'job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome' are the categorical variables)
+categorical_vars <- c('job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome')
+bank_data[categorical_vars] <- lapply(bank_data[categorical_vars], function(x) as.numeric(as.factor(x)))
+
+# Scale the continuous predictor variables
+# (assuming 'balance', 'duration', 'campaign', 'pdays', 'previous' are the continuous variables)
+continuous_vars <- c('balance', 'duration', 'campaign', 'pdays', 'previous')
+bank_data[continuous_vars] <- scale(bank_data[continuous_vars])
+
+# Build the linear regression model using the lm() function
+# Assuming 'y' is the target variable and based on previous analyses, we select 'duration', 'pdays', 'previous', 'poutcome' as predictors
+model <- lm(y ~ duration + pdays + previous + poutcome, data = bank_data)
+
+# Summary of the model to check for statistical significance and R-squared value
+summary(model)
+
+# Diagnostic plots to check for assumptions like homoscedasticity and normality of residuals
+par(mfrow=c(2,2))
+plot(model)
