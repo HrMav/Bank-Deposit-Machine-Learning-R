@@ -104,6 +104,31 @@ summary(model)
 par(mfrow=c(2,2))
 plot(model)
 
+# Assuming model is your logistic regression model and bank_data is your dataset
+# Split data into training and test sets (adjust the proportion as needed)
+set.seed(123)
+index <- createDataPartition(bank_data$y, p = 0.8, list = FALSE)
+train_data <- bank_data[index, ]
+test_data <- bank_data[-index, ]
+
+# Fit the model on the training data
+model <- glm(y ~ duration + pdays + previous + poutcome, family = binomial(), data = train_data)
+summary(model)
+
+# Predict on test data
+probabilities <- predict(model, test_data, type = "response")
+predictions <- ifelse(probabilities > 0.5, 1, 0)
+
+# Confusion Matrix
+confusionMatrix <- confusionMatrix(factor(predictions), factor(test_data$y))
+print(confusionMatrix)
+
+# Calculate AUC-ROC
+roc_curve <- roc(test_data$y, probabilities)
+auc_value <- auc(roc_curve)
+plot(roc_curve)
+print(auc_value)
+
 # Build the Bayesian logistic regression model
 # Selecting 'duration', 'pdays', 'previous', 'poutcome' as predictors based on previous analyses
 # Note: This is a computationally intensive process and may take some time
